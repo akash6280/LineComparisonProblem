@@ -22,10 +22,15 @@ public class LineCompariosnMain {
 		
 		Double lengthOfLine2=Math.sqrt((xStartCoordinate-xEndCoordinate)*(xStartCoordinate-xEndCoordinate)+(yStartCoordinate-yEndCoordinate)*(yStartCoordinate-yEndCoordinate));
 		
-		if(lengthOfLine1.equals(lengthOfLine2))
+		if(lengthOfLine1.compareTo(lengthOfLine2)==0)
 			System.out.println("Lines are equal");
+		
+		else if(lengthOfLine1.compareTo(lengthOfLine2)>0)
+			System.out.println("Line1 is greater");
+		
 		else
-			System.out.println("Lines are unequal");
+			System.out.println("Line2 is greater");
+			
 		scanner.close();
 		
 	}
