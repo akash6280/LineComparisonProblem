@@ -5,32 +5,26 @@ public class LineCompariosnMain {
 	public static void main(String[] args) {
 		Scanner scanner=new Scanner(System.in);
 		
+		
+		
 		System.out.println("Enter coordinates of line 1 as (x1,y1) and (x2,y2)");
-		double xStartCoordinate=scanner.nextDouble();
-		double yStartCoordinate=scanner.nextDouble();
-		double xEndCoordinate=scanner.nextDouble();
-		double yEndCoordinate=scanner.nextDouble();
-		
-		Double lengthOfLine1=Math.sqrt((xStartCoordinate-xEndCoordinate)*(xStartCoordinate-xEndCoordinate)+(yStartCoordinate-yEndCoordinate)*(yStartCoordinate-yEndCoordinate));
-		
+		Point startPointLine1 = new Point(scanner.nextDouble(),scanner.nextDouble());
+		Point endPointLine1 = new Point(scanner.nextDouble(),scanner.nextDouble());	
 		
 		System.out.println("Enter coordinates of line 2 as x1,y1) and (x2,y2)");
-		xStartCoordinate=scanner.nextDouble();
-		yStartCoordinate=scanner.nextDouble();
-		xEndCoordinate=scanner.nextDouble();
-		yEndCoordinate=scanner.nextDouble();
+
+		Point startPointLine2 = new Point(scanner.nextDouble(),scanner.nextDouble());
+		Point endPointLine2 = new Point(scanner.nextDouble(),scanner.nextDouble());
 		
-		Double lengthOfLine2=Math.sqrt((xStartCoordinate-xEndCoordinate)*(xStartCoordinate-xEndCoordinate)+(yStartCoordinate-yEndCoordinate)*(yStartCoordinate-yEndCoordinate));
+	    LengthComparatorIF lengthCalculator =  new LengthComparatorImpl();
 		
-		if(lengthOfLine1.compareTo(lengthOfLine2)==0)
-			System.out.println("Lines are equal");
+		Line line1=new Line(startPointLine1,endPointLine1);
+		Line line2=new Line(startPointLine2,endPointLine2);
 		
-		else if(lengthOfLine1.compareTo(lengthOfLine2)>0)
-			System.out.println("Line1 is greater");
+		lengthCalculator.compareTo(line1,line2);
+		lengthCalculator.equals(line1,line2);
 		
-		else
-			System.out.println("Line2 is greater");
-			
+		
 		scanner.close();
 		
 	}
